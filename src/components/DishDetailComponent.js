@@ -29,14 +29,12 @@ import {
 
     renderComments(comments) {
         if (comments != null) {
-          let options = { year: "numeric", month: "short", day: "numeric" };
           return comments.map(comment => (
             <ul key={comment.id} className="list-unstyled">
               <li className="mb-2">{comment.comment}</li>
               <li>
                 -- {comment.author}{" "}
-                {new Date(comment.date).toLocaleDateString("en-US", options)}
-              </li>
+                {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}              </li>
             </ul>
           ));
         } else return <div />;
