@@ -19,12 +19,13 @@ class Main extends Component {
   }
 
    renderDish(dish){
-      if(dish!=null) return <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
-
+      if(dish!=null) return <DishDetail dish=
+      {this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
       else return <div />
       }
 
   render() {
+    
     return (
       <div>
         <Navbar dark color="primary">
