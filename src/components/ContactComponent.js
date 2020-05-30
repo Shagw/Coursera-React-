@@ -54,7 +54,7 @@ class Contact extends Component {
 
     validate(firstname, lastname, telnum, email){
         const errors = {
-            firstname: '',
+         firstname: '',
          lastname:'',
          telnum:'',
          email:'',
