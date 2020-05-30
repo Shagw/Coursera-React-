@@ -23,7 +23,6 @@ function RenderLeader({leaders}){
     ))
 }
 
-
 function About(props) {
 
 
