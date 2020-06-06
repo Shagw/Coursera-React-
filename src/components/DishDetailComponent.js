@@ -5,6 +5,7 @@ import {
   } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {LocalForm, Control, Errors} from 'react-redux-form';
+import {Loading} from './LoadingComponent';
 
       
    
@@ -58,8 +59,26 @@ import {LocalForm, Control, Errors} from 'react-redux-form';
 
 
     const DishDetail = (props) => {
+        if(props.isLoading){
+            return(
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
+                </div>
+            )
+        }
+        else if (props.errmess){
+            return(
+                <div className='container'>
+                    <div className='row'>
+                        <h4>{props.errmess}</h4>
+                    </div>
+                </div>
+            )
+        }
 
-      
+      else{
          return(
             <div className='container'>
                 <div className="row">
@@ -83,6 +102,7 @@ import {LocalForm, Control, Errors} from 'react-redux-form';
             </div>
             )
         }
+    }
     
         const required = (val) => val && val.length;
         const maxLength = (len) => (val) => !(val) || (val.length <= len);
