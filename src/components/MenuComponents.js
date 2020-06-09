@@ -39,12 +39,12 @@ import {baseURL} from '../shared/baseURL';
                 </div>
             );
         }
-        else if (props.dishes.errMess) {
+        else if (props.dishes.errmess) {
             return(
                 <div className="container">
                     <div className="row"> 
                         <div className="col-12">
-                            <h4>{props.dishes.errMess}</h4>
+                            <h4>{props.dishes.errmess}</h4>
                         </div>
                     </div>
                 </div>
