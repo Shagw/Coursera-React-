@@ -33,7 +33,7 @@ import {baseURL} from '../shared/baseURL';
     }
 
 
-    function RenderComments({comments, addComment, dishId}) {
+    function RenderComments({comments, postComment, dishId}) {
         var commentlist=comments.map(comment => {
             return(
                 <div>
@@ -53,7 +53,7 @@ import {baseURL} from '../shared/baseURL';
         return(
             <div>
                 {commentlist}
-                <CommentForm dishId={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
             </div>
         )
         }
@@ -97,7 +97,7 @@ import {baseURL} from '../shared/baseURL';
                <RenderDish dish={props.dish} />
                <div className='col-12 col-md-5 m-1'>
                     <h4>Comments</h4>
-                    <RenderComments comments={props.comments} addComment={props.addComment} dishId={props.dish.id}/>
+                    <RenderComments comments={props.comments} postComment={props.postComment} dishId={props.dish.id}/>
                 </div>
             </div>
             </div>
@@ -127,7 +127,7 @@ export class CommentForm extends Component{
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
     
     render(){
@@ -176,7 +176,7 @@ export class CommentForm extends Component{
                                         <Label htmlFor="comment" md={12}>Your feedback</Label>
                                         <Col  className="mb-2" md={12}>
                                             <Control.textarea model=".comment" id="comment" name="comment" rows="6" className="form-control"  validators={{
-                                            required, minLength: minLength(3), maxLength: maxLength(15)
+                                            required, minLength: minLength(3), maxLength: maxLength(25)
                                         }}/>
                                         </Col>
                                         <Errors
