@@ -60,10 +60,8 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
         })
         
         return(
-            <div>
-                
+            <div>             
                 {commentlist}
-                
                 <CommentForm dishId={dishId} postComment={postComment}/>
             </div>
         )
@@ -95,7 +93,6 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
             <div className='container'>
                 <div className="row">
                     <Breadcrumb>
-
                         <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
                         <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                     </Breadcrumb>
